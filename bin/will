@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'william'
+
+args = ARGV.clone
+
+puts File.expand_path('Willfile')
+runner = William::Runner.new()
+runner.run args
+
+# vim: syntax=ruby
