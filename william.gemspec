@@ -14,8 +14,8 @@ Gem::Specification.new do |s|
   s.rubyforge_project = "william"
 
   s.files         = `git ls-files`.split("\n")
-  s.executables   = ['bin/will']
-  s.default_executable = 'bin/will'
+  s.executables   = ['will']
+  s.default_executable = 'will'
   s.bindir        = 'bin'
   s.require_paths = ["lib"]
 end

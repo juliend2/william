@@ -7,9 +7,11 @@ module William
     end
 
     def run(args)
-      @args = args
-      require @file_path
+      load @file_path
+
+      args.each do |arg|
+        send arg.to_sym
+      end
     end
   end
-  # Your code goes here...
 end

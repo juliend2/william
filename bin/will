@@ -5,8 +5,8 @@ require 'william'
 
 args = ARGV.clone
 
-puts File.expand_path('Willfile')
-runner = William::Runner.new()
+willfile_path = File.expand_path('Willfile')
+runner = William::Runner.new(willfile_path)
 runner.run args
 
 # vim: syntax=ruby
