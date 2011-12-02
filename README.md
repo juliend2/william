@@ -23,8 +23,8 @@ def test
 end
 ```
 
-Run the deploy task with `will deploy` , or just the test task with (you've
-guessed it `will test`.
+Run the 'deploy' task with `will deploy` , or just the 'test' task with (you've
+guessed it) `will test`.
 
 
 
