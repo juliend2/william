@@ -8,7 +8,7 @@ Example
 
 Here is an example Willfile:
 
-    $remotes = ['bruins']
+    $remotes = ['user@host.com']
 
     def deploy
       test
