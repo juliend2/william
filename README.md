@@ -8,18 +8,20 @@ Example
 
 Here is an example Willfile:
 
-    $remotes = ['user@host.com']
+```ruby
+$remotes = ['user@host.com']
 
-    def deploy
-      test
-      puts "I'm deploying!!!"
-      ssh "ls -la"
-      local "ls -la"
-    end
+def deploy
+  test
+  puts "I'm deploying!!!"
+  ssh "ls -la"
+  local "ls -la"
+end
 
-    def test
-      puts "I'm testing!!!"
-    end
+def test
+  puts "I'm testing!!!"
+end
+```
 
 Run the deploy task with `will deploy` , or just the test task with (you've
 guessed it `will test`.
