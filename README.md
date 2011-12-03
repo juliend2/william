@@ -1,31 +1,45 @@
 William
 =======
 
-A DSL to interact with your server via SSH
+Create deployment scripts with William's easy DSL to interact with your server
+via SSH.
 
-Example
--------
+Installation
+------------
 
-Here is an example Willfile:
+`gem install william`
 
-```ruby
-$remotes = ['user@host.com']
+Usage
+-----
 
-def deploy
-  test
-  puts "I'm deploying!!!"
-  run "ls -la"
-  local "ls -la"
-end
+1. Create a Willfile inside your project's directory :
+  
+  ```ruby
+  $remotes = ["user@host.com"]
 
-def test
-  puts "I'm testing!!!"
-end
-```
+  def deploy
+    puts "I'm deploying!!!"
+    cd "/home/user/myapp" do
+      run "git pull origin master"
+      run "bundle install --without development"
+      run "rake db:migrate RAILS_ENV='production'"
+      run "touch ./tmp/restart.txt"
+    end
+  end
+  
+  def test
+    puts "I'm testing!!!"
+    local "rake spec"
+    local "rake jasmine"
+  end
+  ```
 
-Run the 'deploy' task with `will deploy` , or just the 'test' task with (you've
+2. Run the your script's *deploy* task with `will deploy` , or just the *test* task with (you've
 guessed it) `will test`.
 
 
+Inspiration
+-----------
 
+William is my attempt at doing a Ruby version of [Fabric](http://docs.fabfile.org/).
 

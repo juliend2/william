@@ -9,7 +9,8 @@ Gem::Specification.new do |s|
   s.email       = ["juliend2@gmail.com"]
   s.homepage    = "https://github.com/juliend2/william"
   s.summary     = %q{A DSL to interact with your server via SSH}
-  s.description = %q{William is a DSL to interact with your server via SSH}
+  s.description = %q{Create deployment scripts with William's easy DSL to interact with your server via SSH.}
+
 
   s.rubyforge_project = "william"
 
