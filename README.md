@@ -43,3 +43,7 @@ Inspiration
 
 William is my attempt at doing a Ruby version of [Fabric](http://docs.fabfile.org/).
 
+License
+-------
+
+William is released under the MIT license.
