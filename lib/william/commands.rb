@@ -1,20 +1,46 @@
 module William
   class Commands
-    def initialize(host)
+
+    def initialize(host, debug=false)
+      @debug = debug
       @host = host
+      @current_command = nil
+      @current_command_type = nil
+      @start_pwd = @current_pwd = _get_pwd
     end
 
     def local(command)
-      puts `#{command}`
+      _output(:localhost, :local, "#{command}")
     end
 
-    def ssh(command)
-      puts `ssh #{@host} '#{command}'`
+    def run(command)
+      _output(@host, :run, "ssh #{@host} 'cd #{@current_pwd} && #{command}'")
     end
 
     def cd(directory)
-      ssh "cd #{directory}"
+      run "cd #{directory}"
+      @current_pwd = directory
       yield if block_given?
+      @current_pwd = @start_pwd
+    end
+
+    private
+
+    def _execute(command)
+      `#{command}`
+    end
+
+    def _output(host, cmd_type, command)
+      puts "[#{host}] #{cmd_type}: #{command}"
+      @current_command_type = cmd_type
+      @current_command = command
+      output = _execute(command)
+      puts output.split("\n").map{|line| "[#{host}] out: #{line}" }
+      output # return the output!
+    end
+
+    def _get_pwd
+      `ssh #{@host} 'echo $PWD'`.strip
     end
 
   end

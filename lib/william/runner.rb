@@ -1,6 +1,7 @@
 module William
   class Runner
-    def initialize(file_path)
+    def initialize(file_path, debug=false)
+      @debug = debug
       @file_path = file_path
     end
 
@@ -13,7 +14,7 @@ module William
 
       $remotes.each do |remote|
         args.each do |arg|
-          commander = MyCommands.new(remote)
+          commander = MyCommands.new(remote, @debug)
           commander.send arg.to_sym
         end
       end

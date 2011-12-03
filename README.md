@@ -14,7 +14,7 @@ $remotes = ['user@host.com']
 def deploy
   test
   puts "I'm deploying!!!"
-  ssh "ls -la"
+  run "ls -la"
   local "ls -la"
 end
 
