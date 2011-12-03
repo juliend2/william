@@ -23,7 +23,7 @@ module William
       command = "cd #{directory}"
 
       @command_argument = directory
-      _output(@host, :cd, "ssh #{@host} '#{command}'")
+      _show_executing_command(@host, :cd, @command_argument)
 
       @current_pwd = directory
       yield if block_given?
@@ -37,12 +37,17 @@ module William
     end
 
     def _output(host, cmd_type, command)
-      puts "[#{host}] #{cmd_type}: #{@command_argument}"
+      _show_executing_command(host, cmd_type, @command_argument)
       @current_command_type = cmd_type
       @current_command = command
       output = _execute(command)
       puts output.split("\n").map{|line| "[#{host}] out: #{line}" }
       output # return the output!
+    end
+
+    # display the currently executed command (without preceding `cd .. &&`)
+    def _show_executing_command(host, cmd_type, command)
+      puts "[#{host}] #{cmd_type}: #{command}"
     end
 
     def _get_pwd

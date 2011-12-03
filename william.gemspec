@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = William::VERSION
   s.authors     = ["Julien Desrosiers"]
   s.email       = ["juliend2@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/juliend2/william"
   s.summary     = %q{A DSL to interact with your server via SSH}
   s.description = %q{William is a DSL to interact with your server via SSH}
 
