@@ -41,7 +41,7 @@ guessed it) `will test`.
 TODO
 ----
 
-* for now, every executed command requires a new SSH connexion. In the future
+* for now, every executed command requires a new SSH authentication. In the future
   i'd like to retain the connexion state to remove the need to re-enter the password for
   every single command (when my public key is not in the remote server's .ssh/authorized_keys).
 * write some tests!
