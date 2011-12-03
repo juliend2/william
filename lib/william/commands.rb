@@ -10,15 +10,21 @@ module William
     end
 
     def local(command)
+      @command_argument = command
       _output(:localhost, :local, "#{command}")
     end
 
     def run(command)
+      @command_argument = command
       _output(@host, :run, "ssh #{@host} 'cd #{@current_pwd} && #{command}'")
     end
 
     def cd(directory)
-      run "cd #{directory}"
+      command = "cd #{directory}"
+
+      @command_argument = directory
+      _output(@host, :cd, "ssh #{@host} '#{command}'")
+
       @current_pwd = directory
       yield if block_given?
       @current_pwd = @start_pwd
@@ -31,7 +37,7 @@ module William
     end
 
     def _output(host, cmd_type, command)
-      puts "[#{host}] #{cmd_type}: #{command}"
+      puts "[#{host}] #{cmd_type}: #{@command_argument}"
       @current_command_type = cmd_type
       @current_command = command
       output = _execute(command)
