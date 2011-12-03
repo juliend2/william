@@ -34,7 +34,7 @@ def test
 end
 ```
 
-* Run the your script's **deploy** task with `will deploy` , or just the **test** task with (you've
+* Run the your script's **deploy** task with `will deploy` , or just the **test** task with (you
 guessed it) `will test`.
 
 
