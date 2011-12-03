@@ -38,6 +38,18 @@ end
 guessed it) `will test`.
 
 
+TODO
+----
+
+* for now, every executed command requires a new SSH connexion. In the future
+  i'd like to retain the connexion state to remove the need to re-enter the password for
+  every single command (when my public key is not in the remote server's .ssh/authorized_keys).
+* write some tests!
+* make it possible to do some useful stuff with the return value of commands
+  (maybe return an object, with .failed and .return_code, like Fabric does).
+* document the code
+* add `abort`, `warn`, `sudo`, `prompt`, `put`, `get`, `reboot`, `prefix` and `lcd` commands
+
 Inspiration
 -----------
 
